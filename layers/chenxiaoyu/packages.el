@@ -30,7 +30,9 @@
 ;;; Code:
 
 (defconst chenxiaoyu-packages
-  '()
+  '(
+    youdao-dictionary ;; 有道词典
+    )
   "The list of Lisp packages required by the chenxiaoyu layer.
 
 Each entry is either:
@@ -58,5 +60,11 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
+(defun chenxiaoyu/init-youdao-dictionary ()
+  (use-package youdao-dictionary
+    :init
+    (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
+  )
+)
 
 ;;; packages.el ends here
